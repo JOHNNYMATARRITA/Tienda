@@ -36,7 +36,6 @@
     color: white;
 }
 
-
 #barralateral {
     position: absolute;
     top: 12%;
@@ -51,8 +50,8 @@
 
 #contenido {
     position: absolute;
-    top: 12%;
-    left: 20%;
+    top: 25%;
+    left: 0%;
     height: 81%;
     width: 80%;
     background-color: #7901A0;
