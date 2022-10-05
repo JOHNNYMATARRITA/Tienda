@@ -7,7 +7,7 @@
     left: 0;
     height: 8%;
     width: 100%;
-    background-color: blue;
+    background-color: red;
     color: white;
 }
 
@@ -21,7 +21,7 @@
     left: 0;
     height: 4%;
     width: 100%;
-    background-color: black;
+    background-color: red;
     color: white;
 }
 
@@ -42,7 +42,7 @@
     left: 0;
     height: 81%;
     width: 20%;
-    background-color: #00FFA0;
+    background-color: red;
     padding: 10px;
 
 }
@@ -52,15 +52,16 @@
     position: absolute;
     top: 25%;
     left: 0%;
-    height: 81%;
-    width: 80%;
-    background-color: #7901A0;
+    height: 50%;
+    width: 50%;
+    background-color: red;
     padding: 10px;
     overflow: auto;
+    text-align: center;
 }
 
 #encabezadoTabla {
-    background-color: blue;
+    background-color: red;
     color: white;
 }
 
@@ -80,9 +81,9 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    height: 4%;
+    height: 8%;
     width: 100%;
-    background-color: #AABB00;
+    background-color: yellowgreen;
     text-align: center;
 
 }
