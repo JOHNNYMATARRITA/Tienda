@@ -14,15 +14,23 @@ import lombok.Data;
 
 public class Cliente implements Serializable {
 
-    private static final long serialVersionUID=1L;
+    private static final long serialVersionUID = 1L;
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
   
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long idcliente;
+    private Long idCliente;
     private String nombre;
     private String apellido;
     private String correo;
     private String telefono;
+
+    public Cliente() {
+    }
+    
 
     public Cliente(String nombre, String apellido, String correo, String telefono) {
         this.nombre = nombre;
@@ -30,5 +38,7 @@ public class Cliente implements Serializable {
         this.correo = correo;
         this.telefono = telefono;
     }
+    
+    
 
 }
