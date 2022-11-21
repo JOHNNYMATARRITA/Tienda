@@ -41,7 +41,7 @@ public class CategoriaController {
       @GetMapping("/categoria/modificarCategoria/{idCategoria}")
        public String modificarCategoria(Categoria categoria, Model model){ 
      
-           categoria=  categoriaService.getCategoria(categoria.getIdCategoria()).get();
+           categoria=  categoriaService.getCategoria(categoria.getIdCredito()).get();
  model.addAttribute("categoria",categoria);
               return"/categoria/modifica";
     }

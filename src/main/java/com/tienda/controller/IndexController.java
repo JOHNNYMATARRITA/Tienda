@@ -1,6 +1,6 @@
 package com.tienda.controller;
 
-import com.tienda.service.articuloService;
+import com.tienda.service.ArticuloService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,13 +13,13 @@ public class IndexController {
 
     @Autowired
 
-    private articuloService articuloService;
+    private ArticuloService articuloService;
 
     @GetMapping("/")
     public String inicio(Model model) {
         log.info("Estamos usando arquitectura mvc");
 
-        var articulos = articuloService.getarticulos(true);
+        var articulos = articuloService.getArticulos(true);
 
         model.addAttribute("articulos", articulos);
 

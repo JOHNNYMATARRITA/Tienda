@@ -19,8 +19,8 @@ public class CategoriaServicelmpl implements CategoriaService {
     @Transactional(readOnly = true)
     public List<Categoria> getCategorias(boolean activos) {
         var lista= (List<Categoria>) clienteDao.findAll();
-  
-        if(activos){lista.removeIf(e−> !e.isActivo() );}
+       
+        if(activos){lista.removeIf(e-> !e.isActivo() );}
         return lista;
     }
 

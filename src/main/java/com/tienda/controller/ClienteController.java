@@ -1,5 +1,6 @@
 package com.tienda.controller;
 
+import com.tienda.dao.ClienteDao;
 import com.tienda.domain.Cliente;
 import com.tienda.service.ClienteService;
 import lombok.extern.slf4j.Slf4j;
@@ -15,8 +16,11 @@ public class ClienteController {
     
     @Autowired
     private ClienteService clienteService;
-
-    @GetMapping("/cliente/listado")
+    
+     @Autowired
+    private ClienteDao clienteIT;
+      
+      @GetMapping("/cliente/listado")
     public String inicio(Model model) {
    
         var clientes = clienteService.getClientes();
@@ -52,4 +56,15 @@ public class ClienteController {
        return "redirect:/cliente/listado";
     }
     
+          @GetMapping("/cliente/modificarCliente/{apellido}")
+       public String buscarporApellido (Cliente cliente, Model model){ 
+           Cliente c=new Cliente();
+           c=clienteIT.findByApellido(cliente.getApellido());
+           model.addAttribute("clientes",c);
+     return "redirect:/cliente/listado";
+           
+           
+}
+       
+       
 }

@@ -16,6 +16,9 @@ public class ArticuloController {
     @Autowired
     private ArticuloService articuloService;
 
+        @Autowired
+    private ArticuloService categoriaService;
+        
     @GetMapping("/articulo/listado")
     public String inicio(Model model) {
    
@@ -28,7 +31,9 @@ public class ArticuloController {
     }
 
     @GetMapping ("/Articulo/nuevo")
-    public String nuevoArticulo(Articulo articulo){
+    public String nuevoArticulo(Articulo articulo, Model model){
+        var categorias=categoriaService.getCategorias(true);
+        model.addAttribute("categorias", categorias);
     return "/articulo/modifica";
 }
     
@@ -41,8 +46,8 @@ public class ArticuloController {
       @GetMapping("/articulo/modificarArticulo/{idArticulo}")
        public String modificarArticulo(Articulo articulo, Model model){ 
      
-           articulo=  articuloService.getArticulo(articulo.getIdArticulo()).get();
- model.addAttribute("articulo",articulo);
+        var categorias=categoriaService.getCategorias(true);
+        model.addAttribute("categorias", categorias);
               return"/articulo/modifica";
     }
     

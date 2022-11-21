@@ -27,7 +27,7 @@ public class Cliente implements Serializable {
     private String correo;
     private String telefono;
 
-    @JoinColumn(name="id_credito". referencedColumnName="id_credito")
+    @JoinColumn(name="id_credito",referencedColumnName="id_credito")
     @ManyToOne
     private Credito credito;
 ;    

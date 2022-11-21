@@ -18,14 +18,21 @@ public class ArticuloServicelmpl implements ArticuloService {
     @Override
     @Transactional(readOnly = true)
     public List<Articulo> getArticulos(boolean activos) {
-        var lista= (List<Articulo>) clienteDao.findAll();
-  
-        if(activos){lista.removeIf(e −> ! e.isActivo() );}
+        List<Articulo> lista = (List<Articulo>) clienteDao.findAll();
+
+        if (activos) {
+
+            if (activos) {
+                lista.removeIf(e -> !e.isActivo());
+            }
+
+        }
+
         return lista;
     }
 
     @Override
-    
+
     public void save(com.tienda.domain.Articulo cliente) {
         clienteDao.save(cliente);
     }
@@ -38,9 +45,7 @@ public class ArticuloServicelmpl implements ArticuloService {
     @Override
     @Transactional(readOnly = true)
     public Optional<Articulo> getArticulo(long idArticulo) {
-     return clienteDao.findById(idArticulo);
+        return clienteDao.findById(idArticulo);
     }
-
-
 
 }

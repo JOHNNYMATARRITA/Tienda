@@ -27,31 +27,23 @@ public class ClienteServicelmpl implements ClienteService {
     }
 
     @Override
-    
+    @Transactional
     public void save(com.tienda.domain.Cliente cliente) {
         Credito credito = cliente.getCredito();
-        credito=creditoDao.save(credito);}
+        credito=creditoDao.save(credito);
          cliente.setCredito(credito);
 
         clienteDao.save(cliente);
-
-    @Override
-    public void delete(Cliente cliente) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public Optional<Cliente> getCliente(long idCliente) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    }
-
-    @Override
+     }
+    
+    
+     @Override
     public void delete(com.tienda.domain.Cliente cliente) {
         clienteDao.delete(cliente);
     }
 
     @Override
+    
     @Transactional(readOnly = true)
     public Optional<Cliente> getCliente(long idCliente) {
      return clienteDao.findById(idCliente);

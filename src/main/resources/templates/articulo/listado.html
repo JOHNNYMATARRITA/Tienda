@@ -14,19 +14,20 @@
     <body>
         <header th:replace="layout/plantilla :: header"/>
          <div class="contenido"> 
-        <h2>Listado de articulos</h2>
+        <h2 th:text="#{articulo.titulo}">Listado de articulos</h2>
 
-        <a th:href="@{/articulo/nuevo}">Nuevo articulo</a>
+        <a th:href="@{/articulo/nuevo}" th:text="#{articulo.nuevo}">Nuevo articulo</a>
 
         <div th:if="${articulos != null and !articulos.empty}">
             <table border="1">
                 <thead>
                     <tr>
-                        <th>Descripcion</th>
-                        <th>Precio</th>
-                        <th>Existencia</th>
-                        <th>Activa</th>
-                 
+                        <th th:text="#{articulo.descripcion}">Descripcion</th>
+                        <th th:text="#{articulo.prefcio}">Precio</th>
+                        <th th:text="#{articulo.existencias}">Existencia</th>
+                        <th th:text="#{articulo.activo}">Activa</th>
+                       <th th:text="#{articulo.eliminar}">Eliminar</th>
+                    <th th:text="#{articulo.actualizar}">Actualizar</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -39,13 +40,13 @@
                          
                         <td><input type="checkbox" name="activo" th:checked="${articulo.activo}" disabled="true"> </td>
 
-                        <td>  <a th:href="@{/articulo/eliminar/} + ${articulo.idArticulo}"> Eliminar </a> </td>
-                        <td>  <a th:href="@{/articulo/modificar/} + ${articulo.idArticulo}"> Modificar </a> </td>
+                        <td>  <a th:href="@{/articulo/eliminar/} + ${articulo.idArticulo}" th:text="#{accion.eliminar}"> Eliminar </a> </td>
+                        <td>  <a th:href="@{/articulo/modificar/} + ${articulo.idArticulo}"th:text="#{accion.actualizar}"> Modificar </a> </td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <div th:if="${articulos == null or !articulos.empty}">
+        <div th:if="${articulos == null or !articulos.empty}" th:text="#{articulo.no_mostrar}">
             No hay lista de articulos que buscar
         </div>
         </div>
